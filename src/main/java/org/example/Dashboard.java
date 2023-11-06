@@ -585,7 +585,6 @@ public class Dashboard {
         pnlVentas.add(btnEliminarEmpleado);
         pnlVentas.add(btndetallesVentas);
 
-
         jfrPrincipal.setLayout(null);
         jfrPrincipal.repaint();
 
