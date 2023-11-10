@@ -273,6 +273,8 @@ public class Clientes {
         Border bordeIzquierdo = BorderFactory.createMatteBorder(0, 0, 0, 1, Color.decode("#FAFAFA"));
         Border bordeIzquierdoJlabel = BorderFactory.createMatteBorder(0, 1, 0, 0, Color.decode("#C6C5C5"));
 
+        System.out.println();
+
         JPanel pnlprimeraSeccion = new JPanel();
         pnlprimeraSeccion.setLayout(null);
         pnlprimeraSeccion.setSize(280, 600);
