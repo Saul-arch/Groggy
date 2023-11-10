@@ -16,6 +16,7 @@ public class Main {
     public static Dashboard UiDashboard;
     public static Ventas UiVentas;
     public static Compras UiCompras;
+    public static inventario uiInventario;
 
     public static Clientes UiClientes;
     static JFrame framePrincipal;
@@ -37,6 +38,8 @@ public class Main {
         UiVentas = new Ventas(framePrincipal);
         UiCompras = new Compras(framePrincipal);
         UiClientes = new Clientes(framePrincipal);
+        uiInventario = new inventario(framePrincipal);
+        uiInventario.pnlPrincipalInventario.setVisible(false);
     }
 
     private static void initCompont() {
@@ -144,6 +147,7 @@ public class Main {
                 UiCompras.pnlPrincipalCompras.setVisible(false);
                 UiVentas.pnlPrincipalVentas.setVisible(false);
                 UiClientes.pnlPrincipalClientes.setVisible(false);
+                uiInventario.pnlPrincipalInventario.setVisible(false);
             }
 
             @Override
@@ -200,6 +204,7 @@ public class Main {
                 UiCompras.pnlPrincipalCompras.setVisible(false);
                 UiVentas.pnlPrincipalVentas.setVisible(true);
                 UiClientes.pnlPrincipalClientes.setVisible(false);
+                uiInventario.pnlPrincipalInventario.setVisible(false);
             }
 
             @Override
@@ -256,7 +261,7 @@ public class Main {
                 UiVentas.pnlPrincipalVentas.setVisible(false);
                 UiCompras.pnlPrincipalCompras.setVisible(true);
                 UiClientes.pnlPrincipalClientes.setVisible(false);
-
+                uiInventario.pnlPrincipalInventario.setVisible(false);
 
             }
 
@@ -314,7 +319,7 @@ public class Main {
                 UiCompras.pnlPrincipalCompras.setVisible(false);
                 UiVentas.pnlPrincipalVentas.setVisible(false);
                 UiClientes.pnlPrincipalClientes.setVisible(true);
-
+                uiInventario.pnlPrincipalInventario.setVisible(false);
             }
 
             @Override
@@ -417,6 +422,13 @@ public class Main {
                 pnlContInventario.setBackground(Color.decode("#DAF2FF"));
                 pnlContRecompensas.setBackground(Color.white);
                 pnlContEmpleados.setBackground(Color.white);
+
+                UiDashboard.pnlDashboard.setVisible(false);
+                UiCompras.pnlPrincipalCompras.setVisible(false);
+                UiVentas.pnlPrincipalVentas.setVisible(false);
+                UiClientes.pnlPrincipalClientes.setVisible(false);
+                uiInventario.pnlPrincipalInventario.setVisible(true);
+
             }
 
             @Override
