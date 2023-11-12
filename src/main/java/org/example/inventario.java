@@ -2,7 +2,12 @@ package org.example;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import org.w3c.dom.events.MouseEvent;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
 public class inventario {
@@ -10,6 +15,10 @@ public class inventario {
     JPanel pnlPrincipalInventario;
     JPanel pnlTablaProductos;
     JPanel pnlDetallesProductos;
+    public JDialog dlgAgregarInventario = new JDialog();
+    public JPanel pnlDatosProduct = new JPanel();
+    public JPanel pnlListproduct = new JPanel();
+
     public inventario(JFrame framePrincipal){
         this.framePrincipal = framePrincipal;
         iniciarVista();
@@ -65,6 +74,15 @@ public class inventario {
         btnAgregar.setBackground(Color.decode("#F28989"));
         btnAgregar.setSize(130, 40);
         btnAgregar.setLocation(10, 740);
+        btnAgregar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               //Implementar la siguiente vista
+               pnlPrincipalInventario.setVisible(false);
+               dlgAgregarInventario.setVisible(true);
+                
+            }
+        });
 
         btnVerProveedor.setText("Ver proveedor");
         btnVerProveedor.setForeground(Color.white);
@@ -168,6 +186,17 @@ public class inventario {
         pnlPrincipalInventario.setVisible(false);
         framePrincipal.add(pnlPrincipalInventario);
 
+        initVistaNuevoInventario(framePrincipal);
+
+
+    }
+    private void initVistaNuevoInventario(JFrame framePrincipal) {
+        dlgAgregarInventario.setSize(1000, 800);
+        dlgAgregarInventario.setBackground(Color.white);
+        dlgAgregarInventario.setLocation(209, 30);
+        dlgAgregarInventario.setVisible(false);
+
+        //framePrincipal.add(dlgAgregarInventario);
     }
 
 }
