@@ -3,11 +3,13 @@ package org.example;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.w3c.dom.events.MouseEvent;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Vector;
 
 public class inventario {
@@ -42,6 +44,10 @@ public class inventario {
         JButton btnAgregar = new JButton();
         JButton btnVerProveedor = new JButton();
         JButton btnActualizarPrecio = new JButton();
+
+        JLabel lblimgpdf = new JLabel();
+        File rutaImgPdf = new File("C:\\Users\\pc\\IdeaProjects\\Sistema_ventas\\Imagenes\\pdf-_icon.svg");
+        FlatSVGIcon icon_pdf = new FlatSVGIcon(rutaImgPdf);
 
         JTable tblTabla = new JTable();
         Vector<String> columnasVentas = new Vector<String>();
@@ -78,8 +84,8 @@ public class inventario {
             @Override
             public void actionPerformed(ActionEvent e) {
                //Implementar la siguiente vista
-               pnlPrincipalInventario.setVisible(false);
-               dlgAgregarInventario.setVisible(true);
+                pnlPrincipalInventario.setVisible(false);
+                dlgAgregarInventario.setVisible(true);
                 
             }
         });
@@ -156,6 +162,10 @@ public class inventario {
         lblGananciasTotalesNombre.setFont(new Font("", Font.PLAIN, 14));
         lblGananciasTotalesNombre.setForeground(Color.decode("#6E6E6E"));
 
+        lblimgpdf.setSize(20, 20);
+        lblimgpdf.setLocation(435, 0);
+        lblimgpdf.setIcon(icon_pdf);
+
         pnlDetallesProductos.setSize(460, 790);
         pnlDetallesProductos.setLocation(812, 10);
         pnlDetallesProductos.setBackground(Color.white);
@@ -173,6 +183,7 @@ public class inventario {
         pnlDetallesProductos.add(btnAgregar);
         pnlDetallesProductos.add(btnVerProveedor);
         pnlDetallesProductos.add(btnActualizarPrecio);
+        pnlDetallesProductos.add(lblimgpdf);
 
         pnlDetallesProductos.setLayout(null);
         pnlDetallesProductos.setVisible(true);
@@ -186,17 +197,16 @@ public class inventario {
         pnlPrincipalInventario.setVisible(false);
         framePrincipal.add(pnlPrincipalInventario);
 
-        initVistaNuevoInventario(framePrincipal);
+        initVistaNuevoInventario(pnlPrincipalInventario);
 
-
+        System.out.println("ACABO yaaaaaaaaaaa");
     }
-    private void initVistaNuevoInventario(JFrame framePrincipal) {
+    private void initVistaNuevoInventario(JPanel pnlPrincipalInventario) {
         dlgAgregarInventario.setSize(1000, 800);
         dlgAgregarInventario.setBackground(Color.white);
-        dlgAgregarInventario.setLocation(209, 30);
+        dlgAgregarInventario.setLocation(0, 30);
         dlgAgregarInventario.setVisible(false);
 
-        //framePrincipal.add(dlgAgregarInventario);
     }
 
 }
