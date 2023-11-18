@@ -199,7 +199,6 @@ public class inventario {
 
         initVistaNuevoInventario(pnlPrincipalInventario);
 
-        System.out.println("ACABO yaaaaaaaaaaa");
     }
     private void initVistaNuevoInventario(JPanel pnlPrincipalInventario) {
         dlgAgregarInventario.setSize(1000, 800);
