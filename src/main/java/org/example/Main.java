@@ -33,6 +33,16 @@ public class Main {
     static JLabel lblcerrar_Sesion;
     public static void main(String[] args) {
         FlatLightLaf.setup();
+        Splash hilo1 = new Splash();
+        hilo1.start();
+        try{
+
+            hilo1.join();
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
         initCompont();
         UiDashboard = new Dashboard(framePrincipal);
         UiVentas = new Ventas(framePrincipal);
