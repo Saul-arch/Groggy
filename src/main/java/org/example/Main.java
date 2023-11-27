@@ -9,10 +9,13 @@ import java.awt.*;
 import java.io.File;
 
 public class Main {
+    public static JFrame framePrincipal;
+    public static JFrame framePrincipalLogin;
     public static void main(String[] args) {
         FlatLightLaf.setup();
-        JFrame framePrincipal = new JFrame();
+        framePrincipal = new JFrame();
         JFrame framePrincipalSplash = new JFrame();
+        framePrincipalLogin = new JFrame();
         JPanel pnlContentSplash = new JPanel();
         Splash hilo1;
         JLabel lblImgSplash = new JLabel();
@@ -50,6 +53,7 @@ public class Main {
         framePrincipalSplash.setVisible(true);
         framePrincipalSplash.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        Login login = new Login(framePrincipalLogin);
         hilo1 = new Splash(framePrincipal);
         hilo1.start();
         while (hilo1.senal){
@@ -60,9 +64,9 @@ public class Main {
 
             }
         }
-        System.out.println("termino");
+
         framePrincipalSplash.dispose();
-        framePrincipal.setVisible(true);
+        framePrincipalLogin.setVisible(true);
 
     }
 }
