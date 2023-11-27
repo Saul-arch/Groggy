@@ -56,7 +56,6 @@ public class Main {
             System.out.println("Sigue");
             if (hilo1.senal){
 
-
             }else{
 
             }
@@ -65,8 +64,5 @@ public class Main {
         framePrincipalSplash.dispose();
         framePrincipal.setVisible(true);
 
-
     }
-
-
 }
