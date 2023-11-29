@@ -18,13 +18,20 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.sql.Statement;
 import java.util.Vector;
 
 public class Clientes {
+    Vector<String> columnasClientes = new Vector<String>();
+    JTable tblTabla = new JTable();
     public JDialog dlgAddCliente = new JDialog();
     JPanel pnlPrincipalClientes = new JPanel();
     JFrame jfrPrincipal = new JFrame();
-    public Clientes(JFrame framePrincipal){
+    public Consultas consultasClientes = new Consultas();
+    public Statement st;
+    public String consultaClientes = "select * from clientes";
+    public Clientes(JFrame framePrincipal, Statement st){
+        this.st = st;
         iniciarVista(framePrincipal);
         this.jfrPrincipal = framePrincipal;
     }
@@ -108,21 +115,19 @@ public class Clientes {
 
         rellenarTarjetaRankEmpleados(rankEmpleados, ventas, chartPanelBarras, chartPanelPastel);
 
-        JTable tblTabla = new JTable();
         tblTabla.setBorder(null);
-        Vector<String> columnasVentas = new Vector<String>();
         Vector<Vector<Object>> data = new Vector<Vector<Object>>();
         DefaultTableModel model;
         JScrollPane scpContenedorJtable = new JScrollPane();
 
-        columnasVentas.add("No.Cliente");
-        columnasVentas.add("Nombre");
-        columnasVentas.add("Apellido P");
-        columnasVentas.add("Apellido M");
-        columnasVentas.add("Sexo");
-        columnasVentas.add("Fecha de registro");
+        columnasClientes.add("No.Cliente");
+        columnasClientes.add("Nombre");
+        columnasClientes.add("Apellido P");
+        columnasClientes.add("Apellido M");
+        columnasClientes.add("Sexo");
+        columnasClientes.add("Fecha de registro");
 
-        model = new DefaultTableModel(data, columnasVentas);
+        model = new DefaultTableModel(data, columnasClientes);
         tblTabla.setModel(model);
 
         scpContenedorJtable.setSize(1260, 620);
@@ -139,7 +144,7 @@ public class Clientes {
         pnlPrincipalClientes.add(scpContenedorJtable);
         pnlPrincipalClientes.setVisible(false);
 
-
+        consultasClientes.refresh(st, tblTabla, columnasClientes, consultaClientes, "clientes");
 
         framePrincipal.add(pnlPrincipalClientes);
     }
@@ -221,6 +226,17 @@ public class Clientes {
         btndetallesVentas.setLocation(180,250);
         btndetallesVentas.setForeground(Color.white);
         btndetallesVentas.setBackground(Color.decode("#81DBED"));
+        btndetallesVentas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (st == null){
+                    System.out.println("El st es nullo");
+                }else{
+                    System.out.println("El ST no es NULlllL");
+                }
+                consultasClientes.refresh(st, tblTabla, columnasClientes, consultaClientes, "clientes");
+            }
+        });
 
         rankEmpleados.add(lblImgSaberMasBarras);
         rankEmpleados.add(lblTitleRanking);

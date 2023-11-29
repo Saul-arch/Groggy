@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.sql.Statement;
 import java.util.Vector;
 
 public class inventario {
@@ -20,9 +21,11 @@ public class inventario {
     public JDialog dlgAgregarInventario = new JDialog();
     public JPanel pnlDatosProduct = new JPanel();
     public JPanel pnlListproduct = new JPanel();
+    public Statement st;
 
-    public inventario(JFrame framePrincipal){
+    public inventario(JFrame framePrincipal, Statement st){
         this.framePrincipal = framePrincipal;
+        this.st = st;
         iniciarVista();
     }
 

@@ -7,13 +7,17 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
 
 public class Main {
     public static JFrame framePrincipal;
     public static JFrame framePrincipalLogin;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         FlatLightLaf.setup();
         framePrincipal = new JFrame();
+        Scanner entrada = new Scanner(System.in);
         JFrame framePrincipalSplash = new JFrame();
         framePrincipalLogin = new JFrame();
         JPanel pnlContentSplash = new JPanel();
@@ -54,16 +58,24 @@ public class Main {
         framePrincipalSplash.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         Login login = new Login(framePrincipalLogin);
-        hilo1 = new Splash(framePrincipal);
-        hilo1.start();
+
+        //hilo1 = new Splash(framePrincipal, login.st);
+
+        if (login.st == null){
+            System.out.println("El st es null00o");
+        }else{
+            System.out.println("El ST no es NULL");
+        }
+
+        /*hilo1.start();
         while (hilo1.senal){
-            System.out.println("Sigue");
+            System.out.println("");
             if (hilo1.senal){
 
             }else{
 
             }
-        }
+        }*/
 
         framePrincipalSplash.dispose();
         framePrincipalLogin.setVisible(true);

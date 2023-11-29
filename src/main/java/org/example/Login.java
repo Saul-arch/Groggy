@@ -8,8 +8,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import static org.example.Main.framePrincipal;
 
 public class Login {
+    public Statement st;
     public Login(JFrame jfrLogin){
         initComponent(jfrLogin);
     }
@@ -84,6 +89,29 @@ public class Login {
 
                 String contrasena = new String(password);
                 Conexion login = new Conexion(usuario, contrasena);
+                try {
+                    st = login.cn.createStatement();
+                    ResultSet rs = st.executeQuery("select * from clientes");
+                    while (rs.next()){
+                        System.out.println(rs.getString("cod_cliente"));
+                    }
+
+                    Splash hilo1 = new Splash(framePrincipal, st);
+
+                    hilo1.start();
+                    while (hilo1.senal){
+                        System.out.println("");
+                        if (hilo1.senal){
+
+                        }else{
+
+                        }
+                    }
+
+                }catch(Exception e1){
+
+                }
+
             }
         });
 

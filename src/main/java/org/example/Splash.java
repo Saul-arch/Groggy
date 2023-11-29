@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.sql.Statement;
 
 public class Splash extends Thread{
     Thread hilo1;
@@ -29,17 +30,19 @@ public class Splash extends Thread{
     static JLabel lblobtenerAyuda;
     static JLabel lblcerrar_Sesion;
     public boolean senal = true;
-public Splash(JFrame framePrincipal){
+    public Statement st;
+public Splash(JFrame framePrincipal, Statement st){ //Ya tengo el Statement aqui
     Splash.framePrincipal = framePrincipal;
+    this.st = st;
 }
     public void run(){
             try{
                 initCompont();
-                UiDashboard = new Dashboard(framePrincipal);
-                UiVentas = new Ventas(framePrincipal);
-                UiCompras = new Compras(framePrincipal);
-                UiClientes = new Clientes(framePrincipal);
-                uiInventario = new inventario(framePrincipal);
+                UiDashboard = new Dashboard(framePrincipal, st);
+                UiVentas = new Ventas(framePrincipal, st);
+                UiCompras = new Compras(framePrincipal, st);
+                UiClientes = new Clientes(framePrincipal, st);
+                uiInventario = new inventario(framePrincipal, st);
                 uiInventario.pnlPrincipalInventario.setVisible(false);
 
                 Thread.currentThread().sleep(1300);
@@ -317,6 +320,7 @@ public Splash(JFrame framePrincipal){
                 UiCompras.pnlPrincipalCompras.setVisible(false);
                 UiVentas.pnlPrincipalVentas.setVisible(false);
                 UiClientes.pnlPrincipalClientes.setVisible(true);
+                //UiClientes.consultasClientes.refresh(UiClientes.st, UiClientes.t);
                 uiInventario.pnlPrincipalInventario.setVisible(false);
             }
 
@@ -602,6 +606,10 @@ public Splash(JFrame framePrincipal){
 
         framePrincipal.add(pnlMenuIzq);
         framePrincipal.add(jmnBar);
+
+    }
+    public void setSt(Statement st){
+        this.st = st;
 
     }
 }

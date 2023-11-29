@@ -22,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -44,9 +45,11 @@ public class Dashboard {
     JTextArea txtNotaArea;
     JPanel pnlBusqCancel;
     JPanel pnlNotResults;
+    public Statement st;
 
-    public Dashboard(JFrame jfPrincipal){
+    public Dashboard(JFrame jfPrincipal, Statement st){
         this.jfrPrincipal = jfPrincipal;
+        this.st = st;
         initDashboard();
     }
 

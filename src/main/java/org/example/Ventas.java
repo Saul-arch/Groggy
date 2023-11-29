@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Vector;
 
@@ -18,8 +19,10 @@ public class Ventas {
     public JDialog dlgModRegistro = new JDialog();
     public JPanel pnlPrincipalVentas = new JPanel();
     public JPanel pnlContentBusCanc = new JPanel();
-    public Ventas(JFrame jfrPrincipal){
+    public Statement st;
+    public Ventas(JFrame jfrPrincipal, Statement st){
         iniciarVista(jfrPrincipal);
+        this.st = st;
     }
 
     private void iniciarVista(JFrame jfrPrincipal) {
