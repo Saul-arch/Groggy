@@ -100,11 +100,11 @@ public class Login {
 
                     hilo1.start();
                     while (hilo1.senal){
-                        System.out.println("");
                         if (hilo1.senal){
+                            System.out.println("cargando pantalla");
 
                         }else{
-
+                            System.out.println("LISTO");
                         }
                     }
 
