@@ -99,6 +99,8 @@ public class Login {
                     Splash hilo1 = new Splash(framePrincipal, st);
 
                     hilo1.start();
+                    hilo1.start();
+                    /*
                     while (hilo1.senal){
                         if (hilo1.senal){
                             System.out.println("cargando pantalla");
@@ -106,7 +108,7 @@ public class Login {
                         }else{
                             System.out.println("LISTO");
                         }
-                    }
+                    }*/
 
                 }catch(Exception e1){
 
