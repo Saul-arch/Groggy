@@ -204,8 +204,10 @@ public Splash(JFrame framePrincipal, Statement st){ //Ya tengo el Statement aqui
                 UiDashboard.pnlDashboard.setVisible(false);
                 UiCompras.pnlPrincipalCompras.setVisible(false);
                 UiVentas.pnlPrincipalVentas.setVisible(true);
+                UiVentas.pnlAddVentaPrincipal.setVisible(false);
                 UiClientes.pnlPrincipalClientes.setVisible(false);
                 uiInventario.pnlPrincipalInventario.setVisible(false);
+
             }
 
             @Override
@@ -260,6 +262,7 @@ public Splash(JFrame framePrincipal, Statement st){ //Ya tengo el Statement aqui
 
                 UiDashboard.pnlDashboard.setVisible(false);
                 UiVentas.pnlPrincipalVentas.setVisible(false);
+                UiVentas.pnlAddVentaPrincipal.setVisible(false);
                 UiCompras.pnlPrincipalCompras.setVisible(true);
                 UiClientes.pnlPrincipalClientes.setVisible(false);
                 uiInventario.pnlPrincipalInventario.setVisible(false);
@@ -322,6 +325,7 @@ public Splash(JFrame framePrincipal, Statement st){ //Ya tengo el Statement aqui
                 UiClientes.pnlPrincipalClientes.setVisible(true);
                 //UiClientes.consultasClientes.refresh(UiClientes.st, UiClientes.t);
                 uiInventario.pnlPrincipalInventario.setVisible(false);
+                UiVentas.pnlAddVentaPrincipal.setVisible(false);
             }
 
             @Override

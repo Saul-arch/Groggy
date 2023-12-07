@@ -88,7 +88,8 @@ public class Login {
                 char[] password = jpassPassword.getPassword();
 
                 String contrasena = new String(password);
-                Conexion login = new Conexion(usuario, contrasena);
+                //Quitar los String y volver a poner las variables
+                Conexion login = new Conexion("saul_administrador_24", "administrador24");
                 try {
                     st = login.cn.createStatement();
                     ResultSet rs = st.executeQuery("select * from clientes");

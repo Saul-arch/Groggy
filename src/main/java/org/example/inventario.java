@@ -21,6 +21,8 @@ public class inventario {
     public JDialog dlgAgregarInventario = new JDialog();
     public JPanel pnlDatosProduct = new JPanel();
     public JPanel pnlListproduct = new JPanel();
+    Consultas consultasInventario = new Consultas();
+    public String selectInventario = "select * from inventario";
     public Statement st;
 
     public inventario(JFrame framePrincipal, Statement st){
@@ -53,19 +55,20 @@ public class inventario {
         FlatSVGIcon icon_pdf = new FlatSVGIcon(rutaImgPdf);
 
         JTable tblTabla = new JTable();
-        Vector<String> columnasVentas = new Vector<String>();
+        Vector<String> columnasInventario = new Vector<String>();
         Vector<Vector<Object>> data = new Vector<Vector<Object>>();
         DefaultTableModel model;
         JScrollPane scpContenedorJtable = new JScrollPane();
 
-        columnasVentas.add("Codigo");
-        columnasVentas.add("producto");
-        columnasVentas.add("Unidad de medida");
-        columnasVentas.add("Precio unit");
-        columnasVentas.add("Presentacion");
-        columnasVentas.add("Stock");
+        columnasInventario.add("Codigo");
+        columnasInventario.add("proveedor");
+        columnasInventario.add("producto");
+        columnasInventario.add("Unidad de medida");
+        columnasInventario.add("Precio unit");
+        columnasInventario.add("Presentacion");
+        columnasInventario.add("Stock");
 
-        model = new DefaultTableModel(data, columnasVentas);
+        model = new DefaultTableModel(data, columnasInventario);
         tblTabla.setModel(model);
 
         scpContenedorJtable.setSize(800, 795);
@@ -198,6 +201,9 @@ public class inventario {
         pnlPrincipalInventario.setBackground(Color.white);
         pnlPrincipalInventario.add(pnlDetallesProductos);
         pnlPrincipalInventario.setVisible(false);
+
+        consultasInventario.refresh(st, tblTabla, columnasInventario, selectInventario, "inventario");
+
         framePrincipal.add(pnlPrincipalInventario);
 
         initVistaNuevoInventario(pnlPrincipalInventario);
